@@ -5,23 +5,6 @@ function setLocalStorage(tasks) {
     localStorage.setItem('todos', JSON.stringify(tasks));
 }
 
-//fjau
-function backup() {
-    tasks = JSON.parse(localStorage.getItem('todos'))
-
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            tasks = JSON.parse(this.responseText)
-            updateTasks(tasks)
-            setLocalStorage(tasks)
-        }
-    }
-
-    xhttp.setRequestHeader('Content-type', 'application/json')
-    xhttp.open("GET", "backup.php", true);
-    xhttp.send(tasks);
-}
-
 function updateTasks(tasks) {
     tasks = search(tasks)
     var list = Object.keys(tasks).map(task => {
