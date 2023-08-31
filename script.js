@@ -46,9 +46,9 @@ function loadTasks() {
 function removeTask(index) {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            tasks = JSON.parse(this.responseText)
-            updateTasks(tasks)
-            setLocalStorage(tasks)
+            loaded = JSON.parse(this.responseText)
+            updateTasks(loaded)
+            setLocalStorage(loaded)
         }
     }
 
@@ -62,9 +62,9 @@ function addTask() {
     xhttp.onreadystatechange = function () {
         console.log(this.status, this.readyState)
         if (this.readyState == 4 && this.status == 200) {
-            tasks = JSON.parse(this.responseText)
-            updateTasks(tasks)
-            setLocalStorage(tasks)
+            loaded = JSON.parse(this.responseText)
+            updateTasks(loaded)
+            setLocalStorage(loaded)
             titleInput.value = ''
         }
     }
