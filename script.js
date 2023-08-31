@@ -5,7 +5,7 @@ function setLocalStorage(tasks) {
     localStorage.setItem('todos', JSON.stringify(tasks));
 }
 
-function find(){
+function find() {
     updateTasks(loaded)
 }
 
@@ -49,6 +49,7 @@ function removeTask(index) {
             loaded = JSON.parse(this.responseText)
             updateTasks(loaded)
             setLocalStorage(loaded)
+            alert('Task Removed')
         }
     }
 
@@ -59,6 +60,9 @@ function removeTask(index) {
 function addTask() {
     var titleInput = document.getElementById('task-title')
     var title = titleInput.value
+
+    if (title.length === 0) return alert('Write title to add')
+
     xhttp.onreadystatechange = function () {
         console.log(this.status, this.readyState)
         if (this.readyState == 4 && this.status == 200) {
@@ -66,6 +70,7 @@ function addTask() {
             updateTasks(loaded)
             setLocalStorage(loaded)
             titleInput.value = ''
+            alert(`Task ${value} Added`)
         }
     }
 
