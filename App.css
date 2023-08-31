@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+
+:root {
+  --color-primary: #1E1E1F;
+  --color-secondary: #292A2B;
+  --color-color1: #EE4B49;
+  --color-color2: #FFFFFF;
+  --color-color3: #120707;
+  --color-color4: #E5C51A;
+  --color-color5: #8C9093;
+  --color-color6: #02225B;
+  --color-color7: #448FF2;
+  --color-color8: #D9D0D4;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@tailwind utilities;
