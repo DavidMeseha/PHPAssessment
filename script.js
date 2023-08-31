@@ -1,8 +1,12 @@
 var xhttp = new XMLHttpRequest();
-let tasks
+let loaded
 
 function setLocalStorage(tasks) {
     localStorage.setItem('todos', JSON.stringify(tasks));
+}
+
+function find(){
+    updateTasks(loaded)
 }
 
 function updateTasks(tasks) {
@@ -30,9 +34,9 @@ function updateTasks(tasks) {
 function loadTasks() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            tasks = JSON.parse(this.responseText)
-            updateTasks(tasks)
-            setLocalStorage(tasks)
+            loaded = JSON.parse(this.responseText)
+            updateTasks(loaded)
+            setLocalStorage(loaded)
         }
     };
     xhttp.open("GET", "get_tasks.php", true);
@@ -69,7 +73,7 @@ function addTask() {
     xhttp.send();
 }
 
-function search(tasks = tasks) {
+function search(tasks = loaded) {
     var searchBar = document.getElementById('search')
     let value = searchBar.value
 
